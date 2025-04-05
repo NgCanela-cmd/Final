@@ -21,9 +21,7 @@ var upload = multer({
     storage: storage
 }).single('image')
 
-/*router.get('', (req, res) => {
-    res.render('index', { titulo: 'Inicio'})
-})*/
+
 
 router.get('/', async (req, res) => {
 
@@ -99,8 +97,8 @@ router.get('/edit/:id', async (req, res) =>{
         res.status(500).send()
     }
 })
-//Actualizar
 
+//Actualizar
 router.post('/update/:id', upload, async (req, res) => {
     const id = req.params.id
 
@@ -172,3 +170,4 @@ router.get('/delete/:id', async (req, res) =>{
     }
 })
 module.exports = router
+//referencia a la ruta de providencia
