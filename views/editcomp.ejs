@@ -1,0 +1,46 @@
+<%- include('layouts/header') %>
+
+<div class="container px-5 my-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1>Editando Componentes (<%= compt.nombre %>)</h1>
+            <form id="add-form" action="/update/<%= compt._id %>" method="post" enctype="multipart/form-data">
+                <div class="mb-2">
+                    <label for="codigo" class="form-label"><strong> Codigo </strong></label>
+                    <input type="text" class="form-control" value="<%= compt.codigo %>" name="codigo" placeholder="Codigo" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="nombre"><strong> Producto </strong></label>
+                    <input class="form-control" value="<%= compt.nombre %>" name="nombre" type="text" placeholder="Product" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="descripcion"><strong> Descripcion </strong></label>
+                    <input class="form-control" value="<%= compt.descripcion %>"name="descripcion" type="text" placeholder="Description" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="cantidad"><strong> Cantidad </strong></label>
+                    <input class="form-control" value="<%= compt.cantidad %>" name="cantidad" type="text" placeholder="Quantity" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="precio"><strong> Precio </strong></label>
+                    <input class="form-control" value="<%= compt.precio %>" name="precio" type="text" placeholder="Price" required>
+                </div>
+                <div class="mb-2">
+                    <label for="image" class="form-label"><strong> Foto </strong></label>
+                    <input name="image" class="form-control" type="file" >
+                    <img src="/<%= compt.image %>" width="100" class="img-thumbnail mt-1">
+                </div>
+
+                <input type="hidden" name="old_image" value="<%= compt.image %>">
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-success btn-lg" value="Editar Producto">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<%- include('layouts/footer') %>

@@ -1,0 +1,56 @@
+<%- include('layouts/header') %>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <% if(message) { %>
+                <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>
+                        <%= message.message  %>
+                    </strong>
+                </div>
+            <% } %>
+            
+            <div class="my-3">
+              <h1><strong>Tabla de Productos </strong></h1>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr class="table-dark">
+                            <th>ID</th>
+                            <th>Codigo</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad</th>
+                            <th>precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% compts.forEach((compt, index) =>{ %>
+                        <tr class="align-middle">
+                            <td><%= ++index %></td>
+                            <td><%= compt.codigo %></td>
+                            <td><img src="<%= compt.image %>" width="50" class="img-thumbnail" alt=""></td>
+                            <td><%= compt.nombre  %></td>
+                            <td><%= compt.descripcion  %></td>
+                            <td><%= compt.cantidad %></td>
+                            <td><%= compt.precio %></td>
+                            <td>
+                                <a href="/edit/<%= compt._id %>"> <i class="fa fa-edit fa-lg text-black"></i></a>
+                                <a href="/delete/<%= compt._id %>"> <i class="fa fa-trash fa-lg text-black"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer')  %>

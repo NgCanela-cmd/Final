@@ -1,0 +1,55 @@
+<%- include('layouts/header') %>
+
+
+  <% /* %> 
+  <% */ %>
+    
+<div id="carouselExampleIndicators" class="carousel slide ">                        
+  <div class="carousel-inner">
+    <% compts.forEach((compt, index) =>{ %>
+      <div class="carousel-item active">
+        <img src="<%= compt.image %>" class="d-block w-100px " alt="...">
+      </div>
+      <% }) %>   
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+    
+   <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div> 
+
+  </div>
+
+<div class="container">
+  <h1 class="text-center mt-4">
+    <strong>LAS MEJORES OFERTAS DEL MES</strong>
+  </h1>
+         
+ 
+
+  <div class="row text-center my-4">
+
+
+    <% compts.forEach((compt, index) =>{ %>
+    <div class="card m-3" style="width: 18rem;">
+      <img src="<%= compt.image %>" class="card-img-top w-100" alt="...">
+      <div class="card-body">
+        <p class="card-text"><%= compt.nombre %></p>
+      </div>
+    </div>
+    <% }) %>
+</div>
+   
+
+</div>
+
+<%- include('layouts/footer')  %>
